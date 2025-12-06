@@ -15,13 +15,9 @@
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: var(--cream);
+    background: var(--soft-pink);
     color: var(--dark-brown);
     line-height: 1.6;
-}
-
-main {
-    padding-top: 120px;
 }
 
 .container {
@@ -36,6 +32,7 @@ main {
     width: 100%;
     top: 0;
     z-index: 1000;
+    margin-top: 0;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
@@ -158,21 +155,22 @@ main {
     padding: 140px 0 40px; 
     text-align: center; 
     background: var(--soft-pink);
-    margin-top: 120px; 
+    margin-top: 70px; 
 }
 
 .shop-hero h1 {
     font-family: "Playfair Display", serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     letter-spacing: 2px;
 }
 
 .shop-hero p {
     font-size: 1rem;
     color: var(--brown);
-    margin-bottom: 3rem; 
+    margin-bottom: 2.2rem; 
+    letter-spacing: 0.2px;
 }
 
 .all-products {
