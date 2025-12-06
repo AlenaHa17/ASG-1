@@ -20,10 +20,6 @@ body {
     line-height: 1.6;
 }
 
-.blue{
-    color: blue;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -51,12 +47,11 @@ body {
 }
 
 .logo {
-    font-family: "Cormorant Garamond", serif;
-    font-optical-sizing: auto;
-    font-weight: 1000;
+    font-family: "Playfair Display", serif;
+    font-weight: 700; 
     font-style: normal;
-    font-size: 2rem;
-    letter-spacing: 2px;
+    font-size: 2.4rem; 
+    letter-spacing: 1px;
 }
 
 .header-actions {
@@ -114,14 +109,16 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    font-weight: 300;
+    font-family: "Playfair Display", serif;
+    font-weight: 600; 
+    font-style: normal;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 }
 
 .hero-content p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
     color: var(--brown);
 }
@@ -151,8 +148,8 @@ body {
 
 .new-arrivals h2 {
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 1.8rem;
+    font-weight: 400;
     margin-bottom: 3rem;
     letter-spacing: 3px;
 }
@@ -161,7 +158,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 3rem;
-    max-width: 900px; /* Increased to accommodate 3 products */
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -177,14 +174,14 @@ body {
 }
 
 .product h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
 }
 
 .product p {
     color: var(--brown);
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 /* Footer */
@@ -196,7 +193,7 @@ body {
     font-size: 0.8rem;
 }
 
-/* Mobile */
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .nav-menu {
         gap: 1.5rem;
@@ -211,8 +208,12 @@ body {
         gap: 1rem;
     }
     
-    .hero-content h1 {
+    .logo {
         font-size: 2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
     
     .products {
