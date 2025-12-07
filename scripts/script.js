@@ -57,3 +57,69 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             }
         });
+
+// ===== CART FUNCTIONALITY ===== //
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Update cart count display
+function updateCartCount() {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartBtn = document.querySelector('.cart-btn');
+    if (cartBtn) {
+        cartBtn.textContent = `Cart (${totalItems})`;
+    }
+}
+
+// Add to cart function 
+function addToCart(product) {
+    // Check if product already in cart
+    const existingItem = cart.find(item => item.id === product.id && item.size === product.size && item.color === product.color);
+    
+    if (existingItem) {
+        existingItem.quantity += product.quantity || 1;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            size: product.size || 'Free',
+            color: product.color || 'Default',
+            quantity: product.quantity || 1
+        });
+    }
+    
+    // Save to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // Update cart count
+    updateCartCount();
+    
+}
+
+// Remove item from cart
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    displayCartItems(); // This function needs to be in cart.html only
+}
+
+// Update item quantity
+function updateQuantity(index, newQuantity) {
+    if (cart[index]) {
+        cart[index].quantity = Math.max(1, newQuantity);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+    }
+}
+
+// Calculate total price
+function calculateTotal() {
+    return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+}
+
+// Initialize cart count on page load
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+});
