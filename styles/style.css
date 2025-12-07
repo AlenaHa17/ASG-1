@@ -390,6 +390,138 @@ body {
     font-weight: 500;
 }
 
+/* ===== COORDINATE PAGE STYLES ===== */
+.coordinate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2.5rem;
+    row-gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.coordinate-card {
+    background: transparent;
+    position: relative;
+}
+
+/* Coordinate image */
+.coordinate-image {
+    width: 100%;
+    height: 380px;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brown);
+    font-size: 0.9rem;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 0.8rem;
+}
+
+.coordinate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.coordinate-card:hover .coordinate-image img {
+    transform: scale(1.05);
+}
+
+/* Model info - below image */
+.model-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
+    padding: 3px;
+}
+
+.model-details {
+    flex: 1;
+}
+
+.model-name {
+    font-family: "Playfair Display", serif;
+    font-size: 1.1rem;
+    font-weight: 450;
+    color: var(--dark-brown);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.model-height {
+    font-size: 0.8rem;
+    color: var(--brown);
+    line-height: 1.2;
+}
+
+.model-username {
+    font-size: 0.8rem;
+    color: var(--dusty-pink);
+    font-style: italic;
+    text-align: right;
+    align-self: center;
+    padding: 2px
+}
+
+/* Coordinate Hero Text */
+.coordinate-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--brown);
+    font-style: normal;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+}
+
+/* Responsive Design for Coordinate Page */
+@media (max-width: 1024px) {
+    .coordinate-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .coordinate-image {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .coordinate-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .coordinate-image {
+        height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .coordinate-image {
+        height: 280px;
+    }
+    
+    .model-name {
+        font-size: 1.1rem;
+    }
+    
+    .model-info {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    
+    .model-username {
+        text-align: left;
+        align-self: flex-start;
+    }
+}
 
 /* Responsive Design */
 @media (max-width: 1200px) {
