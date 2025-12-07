@@ -136,7 +136,7 @@
                             <span>Size: ${item.size}</span>
                         </div>
                     </div>
-                    <div class="item-price">¥${item.price.toLocaleString()}</div>
+                    <div class="item-price">$${item.price.toLocaleString()}</div>
                     <div class="quantity-controls">
                         <button class="quantity-btn" onclick="updateCartQuantity(${index}, ${item.quantity - 1})">-</button>
                         <span class="quantity-display">${item.quantity}</span>
@@ -180,12 +180,12 @@
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             
-            document.getElementById('subtotal').textContent = `¥${subtotal.toLocaleString()}`;
-            document.getElementById('total').textContent = `¥${subtotal.toLocaleString()}`;
+            document.getElementById('subtotal').textContent = `$${subtotal.toLocaleString()}`;
+            document.getElementById('total').textContent = `$${subtotal.toLocaleString()}`;
         }
         
         function checkout() {
-            alert('Proceeding to checkout...');
+            alert('Checking out ♥');
         }
         
         // Initialize cart display on page load

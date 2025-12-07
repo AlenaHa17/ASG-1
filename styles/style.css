@@ -319,7 +319,7 @@ body {
 
 .product-name {
     font-size: 0.95rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 0.5rem;
     line-height: 1.4;
     text-align: center;
@@ -327,9 +327,9 @@ body {
 }
 
 .product-price {
-    font-size: 1rem;
-    color: var(--dark-brown);
-    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--brown);
+    font-weight: 400;
     text-align: center;
     width: 100%;
 }
@@ -523,7 +523,8 @@ body {
     grid-template-columns: 100px 2fr 1fr 1fr auto;
     gap: 1.5rem;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
+    padding-bottom: 3rem;
     border-bottom: 1px solid var(--light-gray);
 }
 
@@ -622,7 +623,7 @@ body {
 
 .summary-row.total {
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 550;
     border-top: 1px solid var(--light-gray);
     padding-top: 1rem;
     margin-top: 1rem;
@@ -631,13 +632,13 @@ body {
 .cart-actions {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
+    margin-top: 2.2rem;
     gap: 1rem;
 }
 
 .continue-btn, .checkout-btn {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1px solid var(--brown);
@@ -1082,4 +1083,13 @@ body {
         grid-template-columns: 1fr;
         max-width: 400px;
     }
+}
+
+/* Remove ALL link styling from all states */
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underline */
 }
