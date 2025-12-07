@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Off-shoulder feather knit with fur - Crum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">Crum ♥</div>
+                <div class="header-actions">
+                    <a href="#" class="search-btn">Search</a>
+                    <a href="cart.html" class="cart-btn">Cart (0)</a>
+                    <a href="#" class="login-btn">Login</a>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">All Items</a></li>
+                    <li><a href="shop.html">New Arrivals</a></li>
+                    <li class="dropdown">
+                        <a href="category.html" class="dropbtn">Category</a>
+                        <div class="dropdown-content">
+                            <a href="category-outerwear.html">Outerwear</a>
+                            <a href="category-tops.html">Tops</a>
+                            <a href="category-bottoms.html">Bottoms</a>
+                            <a href="category-onepiece.html">One Piece</a>
+                            <a href="category-setup.html">Setup</a>
+                            <a href="category-bag.html">Bag</a>
+                            <a href="category-accessories.html">Accessories</a>
+                        </div>
+                    <li><a href="ranking.html">Ranking</a></li>
+                    <li><a href="coordinate.html">Coordinate</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-detail-hero">
+            <div class="container">
+                <h1>~ Product Detail ~</h1>
+            </div>
+        </section>
+
+        <section class="all-products">
+            <div class="container">
+                <div class="product-detail-container">
+                    <!-- Breadcrumb -->
+                    <div class="breadcrumb">
+                        <a href="index.html">All Items</a> &gt;
+                        <a href="shop.html">New Arrivals</a> &gt;
+                        <span>Heart Ribbon Belt Coat</span>
+                    </div>
+
+                    <div class="product-main">
+                        <!-- Product Images -->
+                        <div class="product-images">
+                            <div class="main-image">
+                                Product Image
+                            </div>
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="product-details">
+                            <h1 class="product-details-title">Heart Ribbon Belt Coat</h1>
+                            <div class="product-details-price">$180.00 <span class="tax-label">(tax in)</span></div>
+
+                            <!-- Size Options -->
+                            <div class="size-options">
+                                <div class="section-title">Size</div>
+                                <div class="size-grid">
+                                    <div class="size-option selected">
+                                        <span class="size-label">XS</span>
+                                    </div>
+                                    <div class="size-option">
+                                        <span class="size-label">S</span>
+                                    </div>
+                                    <div class="size-option">
+                                        <span class="size-label">M</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="product-actions">
+                                <button class="add-to-cart-btn" onclick="addToCartProduct1()">Add to Cart</button>
+                            </div>
+
+                            <!-- Product Description -->
+                            <div class="product-description">
+                                <div class="section-title">Description</div>
+                                <div class="description-content">
+                                    <p>The short coat is sure to enhance your style!</p>
+                                    <p>We recommend coordinating with your own bottoms and the hem of your dress.</p>
+                                    <p>The large ribbon on the waist belt and the heart button give it a girly look. ♥</p>
+                                    <p>A collarless design that is easy to match with a muffler.</p>
+                                    <p>Soft fur</p>
+                                    <p>Hand wash recommended</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Crum © 2025 - Soft essentials for everyday charm</p>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+
+    <script>
+    function addToCartProduct1() {
+        const product = {
+            id: 'prod-001',
+            name: 'Heart Ribbon Belt Coat',
+            price: 180,
+            quantity: 1
+        };
+            
+        if (typeof addToCart === 'function') {
+            addToCart(product);
+            alert('Added to cart ♥');
+        }
+    }
+    </script>
+</body>
+</html>
