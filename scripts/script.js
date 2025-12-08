@@ -194,7 +194,6 @@ function getDefaultImage(productId) {
         'prod-001': '../assets/images/heartribbonbeltcoat.jpg',
         'prod-002': '../assets/images/tieredruffledskirt.jpg',
         'prod-003': '../assets/images/camifurset.jpg'
-        // Add more mappings as needed
     };
     
     return imageMap[productId] || '';
@@ -210,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Navigation setup
 function setupNavigation() {
-    // Your existing navigation code
+
     document.querySelectorAll('.nav-menu a').forEach(link => {
         if (link.href === window.location.href) {
             link.classList.add('active');
@@ -251,3 +250,147 @@ function setupProductHover() {
         });
     });
 }
+
+// ===== MOBILE MENU TOGGLE =====
+function setupMobileMenu() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            }
+        });
+        
+        // Close menu on link click
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+            });
+        });
+    }
+}
+
+// ===== DROPDOWN FOR MOBILE =====
+function setupMobileDropdowns() {
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.dropdown > .dropbtn').forEach(dropbtn => {
+            dropbtn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    this.parentElement.classList.toggle('active');
+                }
+            });
+        });
+    }
+}
+
+// ===== TOUCH-ENABLED CAROUSEL/SLIDERS =====
+function setupTouchSliders() {
+    const sliders = document.querySelectorAll('.product-slider, .image-slider');
+    
+    sliders.forEach(slider => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.classList.add('active');
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.classList.remove('active');
+        });
+        
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Touch events
+        slider.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        
+        slider.addEventListener('touchend', () => {
+            isDown = false;
+        });
+        
+        slider.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    });
+}
+
+// ===== RESPONSIVE IMAGE HANDLING =====
+function setupResponsiveImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        images.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for older browsers
+        images.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    }
+}
+
+// ===== UPDATE ALL INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    setupSizeSelection();
+    setupNavigation();
+    setupProductHover();
+    setupMobileMenu(); // Add this
+    setupMobileDropdowns(); // Add this
+    setupTouchSliders(); // Add this if you have sliders
+    setupResponsiveImages(); // Add this
+});
+
+// ===== WINDOW RESIZE HANDLER =====
+let resizeTimer;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+        setupMobileDropdowns();
+        // Re-initialize any responsive components
+    }, 250);
+});
