@@ -129,6 +129,7 @@ The design follows a soft, feminine aesthetic with
 
 ## Media
 -	The photos used in my website were obtained from Pium’s website (https://piumofficial.com/)
+-   The photo in the background of the main page is a picture of myself. I photoshopped the      background to make it look like a photoshoot for my website.
 
 ## Acknowledgements
 -	I received inspiration for this project from Pium (https://piumofficial.com/)
